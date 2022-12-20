@@ -1,6 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 function Shop_Details(props) {
+  const history = useHistory();
+    const productvalue = [props.location.state]
+    const [qty, setQty] = useState(1)
+    const dispatch = useDispatch();
+    console.log(productvalue);
+    
+
+
+    // const handleaaddtocat = (d) => {
+    //     const Datacat = {
+    //         ...d,
+    //         qty: qty
+    //     }
+    //     console.log(Datacat);
+    //     dispatch(addCart(d))
+    //     history.push("/Addtocart", Datacat);
+    // }
+    // const handleCart = () => {
+        
+    // }
+
+
+
     return (
         <div>
             <div>
@@ -15,33 +40,22 @@ function Shop_Details(props) {
     </div>
   </div>
   <div className="container-fluid py-5">
-    <div className="row px-xl-5">
+  {
+          productvalue.map((d) => {
+            console.log(d);
+              return (
+                <>
+                  <div className="row px-xl-5">
       <div className="col-lg-5 pb-5">
         <div id="product-carousel" className="carousel slide" data-ride="carousel">
-          <div className="carousel-inner border">
-            <div className="carousel-item active">
-              <img className="w-100 h-100" src="img/product-1.jpg" alt="Image" />
+        <div className="carousel-item active">
+              <img className="w-100 h-100" src={d.url} alt="Image" />
             </div>
-            <div className="carousel-item">
-              <img className="w-100 h-100" src="img/product-2.jpg" alt="Image" />
-            </div>
-            <div className="carousel-item">
-              <img className="w-100 h-100" src="img/product-3.jpg" alt="Image" />
-            </div>
-            <div className="carousel-item">
-              <img className="w-100 h-100" src="img/product-4.jpg" alt="Image" />
-            </div>
-          </div>
-          <a className="carousel-control-prev" href="#product-carousel" data-slide="prev">
-            <i className="fa fa-2x fa-angle-left text-dark" />
-          </a>
-          <a className="carousel-control-next" href="#product-carousel" data-slide="next">
-            <i className="fa fa-2x fa-angle-right text-dark" />
-          </a>
         </div>
       </div>
       <div className="col-lg-7 pb-5">
-        <h3 className="font-weight-semi-bold">Colorful Stylish Shirt</h3>
+        
+      <h3 className="font-weight-semi-bold">{d.name}</h3>
         <div className="d-flex mb-3">
           <div className="text-primary mr-2">
             <small className="fas fa-star" />
@@ -52,58 +66,8 @@ function Shop_Details(props) {
           </div>
           <small className="pt-1">(50 Reviews)</small>
         </div>
-        <h3 className="font-weight-semi-bold mb-4">$150.00</h3>
+        <h3 className="font-weight-semi-bold mb-4">{d.price}</h3>
         <p className="mb-4">Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc invidunt ipsum et, labore clita lorem magna lorem ut. Erat lorem duo dolor no sea nonumy. Accus labore stet, est lorem sit diam sea et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.</p>
-        <div className="d-flex mb-3">
-          <p className="text-dark font-weight-medium mb-0 mr-3">Sizes:</p>
-          <form>
-            <div className="custom-control custom-radio custom-control-inline">
-              <input type="radio" className="custom-control-input" id="size-1" name="size" />
-              <label className="custom-control-label" htmlFor="size-1">XS</label>
-            </div>
-            <div className="custom-control custom-radio custom-control-inline">
-              <input type="radio" className="custom-control-input" id="size-2" name="size" />
-              <label className="custom-control-label" htmlFor="size-2">S</label>
-            </div>
-            <div className="custom-control custom-radio custom-control-inline">
-              <input type="radio" className="custom-control-input" id="size-3" name="size" />
-              <label className="custom-control-label" htmlFor="size-3">M</label>
-            </div>
-            <div className="custom-control custom-radio custom-control-inline">
-              <input type="radio" className="custom-control-input" id="size-4" name="size" />
-              <label className="custom-control-label" htmlFor="size-4">L</label>
-            </div>
-            <div className="custom-control custom-radio custom-control-inline">
-              <input type="radio" className="custom-control-input" id="size-5" name="size" />
-              <label className="custom-control-label" htmlFor="size-5">XL</label>
-            </div>
-          </form>
-        </div>
-        <div className="d-flex mb-4">
-          <p className="text-dark font-weight-medium mb-0 mr-3">Colors:</p>
-          <form>
-            <div className="custom-control custom-radio custom-control-inline">
-              <input type="radio" className="custom-control-input" id="color-1" name="color" />
-              <label className="custom-control-label" htmlFor="color-1">Black</label>
-            </div>
-            <div className="custom-control custom-radio custom-control-inline">
-              <input type="radio" className="custom-control-input" id="color-2" name="color" />
-              <label className="custom-control-label" htmlFor="color-2">White</label>
-            </div>
-            <div className="custom-control custom-radio custom-control-inline">
-              <input type="radio" className="custom-control-input" id="color-3" name="color" />
-              <label className="custom-control-label" htmlFor="color-3">Red</label>
-            </div>
-            <div className="custom-control custom-radio custom-control-inline">
-              <input type="radio" className="custom-control-input" id="color-4" name="color" />
-              <label className="custom-control-label" htmlFor="color-4">Blue</label>
-            </div>
-            <div className="custom-control custom-radio custom-control-inline">
-              <input type="radio" className="custom-control-input" id="color-5" name="color" />
-              <label className="custom-control-label" htmlFor="color-5">Green</label>
-            </div>
-          </form>
-        </div>
         <div className="d-flex align-items-center mb-4 pt-2">
           <div className="input-group quantity mr-3" style={{width: 130}}>
             <div className="input-group-btn">
@@ -139,14 +103,19 @@ function Shop_Details(props) {
         </div>
       </div>
     </div>
+                </>
+              )
+          })
+        }
+    
     <div className="row px-xl-5">
       <div className="col">
-        <div className="nav nav-tabs justify-content-center border-secondary mb-4">
+        {/* <div className="nav nav-tabs justify-content-center border-secondary mb-4">
           <a className="nav-item nav-link active" data-toggle="tab" href="#tab-pane-1">Description</a>
           <a className="nav-item nav-link" data-toggle="tab" href="#tab-pane-2">Information</a>
           <a className="nav-item nav-link" data-toggle="tab" href="#tab-pane-3">Reviews (0)</a>
-        </div>
-        <div className="tab-content">
+        </div> */}
+        {/* <div className="tab-content">
           <div className="tab-pane fade show active" id="tab-pane-1">
             <h4 className="mb-3">Product Description</h4>
             <p>Eos no lorem eirmod diam diam, eos elitr et gubergren diam sea. Consetetur vero aliquyam invidunt duo dolores et duo sit. Vero diam ea vero et dolore rebum, dolor rebum eirmod consetetur invidunt sed sed et, lorem duo et eos elitr, sadipscing kasd ipsum rebum diam. Dolore diam stet rebum sed tempor kasd eirmod. Takimata kasd ipsum accusam sadipscing, eos dolores sit no ut diam consetetur duo justo est, sit sanctus diam tempor aliquyam eirmod nonumy rebum dolor accusam, ipsum kasd eos consetetur at sit rebum, diam kasd invidunt tempor lorem, ipsum lorem elitr sanctus eirmod takimata dolor ea invidunt.</p>
@@ -242,7 +211,7 @@ function Shop_Details(props) {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   </div>

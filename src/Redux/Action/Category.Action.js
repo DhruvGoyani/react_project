@@ -59,7 +59,7 @@ export const UpdateCategory = (data) => async(dispatch) => {
 
         if (typeof data.category_img === "string") {
             await updateDoc(docRef, {
-                name: data.name,
+                categoryname: data.categoryname,
                 price : data.price,
                 quantity : data.quantity,
                 category_img: data.category_img,
@@ -80,7 +80,7 @@ export const UpdateCategory = (data) => async(dispatch) => {
                                 .then(async (url) => {
 
                                     await updateDoc(docRef, {
-                                        name: data.name,
+                                        categoryname: data.categoryname,
                                         price : data.price,
                                         quantity: data.quantity,
                                         category_img: url,

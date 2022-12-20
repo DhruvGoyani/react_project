@@ -86,7 +86,7 @@ function Category(props) {
   }
 
   const columns = [
-    { field: "name", headerName: "Name", width: 130 },
+    { field: "categoryname", headerName: "categoryname", width: 130 },
     { field: "price", headerName: "price", width: 130 },
     { field: "quantity", headerName: "quantity", width: 130 },
     {
@@ -118,7 +118,7 @@ function Category(props) {
   ];
 
   let schema = yup.object().shape({
-    name: yup.string().required(" please enter category name"),
+    categoryname: yup.string().required(" please enter category name"),
     price: yup.number().required("please enter price").positive(),
     quantity: yup.number().required("please enter quantity"),
     category_img : yup.mixed().required()
@@ -126,7 +126,7 @@ function Category(props) {
 
   const formikobject = useFormik({
     initialValues: {
-      name: "",
+      categoryname: "",
       price: "",
       quantity: "",
       category_img: ""
@@ -216,18 +216,18 @@ function Category(props) {
               <DialogTitle id="alert-dialog-title">Add Category</DialogTitle>
               <DialogContent>
                 <TextField
-                  value={values.name}   
+                  value={values.categoryname}   
                   margin="dense"
-                  id="name"
-                  name="name"
-                  label="Category Name"
+                  id="categoryname"
+                  name="categoryname"
+                  label="categoryname"
                   type="text"
                   fullWidth
                   variant="standard"
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
-                <p>{errors.name && touched.name ? errors.name : ""}</p>
+                <p>{errors.categoryname && touched.categoryname ? errors.categoryname : ""}</p>
 
                 <TextField
                   value={values.price}

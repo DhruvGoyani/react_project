@@ -25,3 +25,7 @@ export const ADD_PRODUCT = "ADD_PRODUCT"
 export const DELETE_PRODUCT = "DELETE_PRODUCT"
 export const EDIT_PRODUCT = "EDIT_PRODUCT"
 export const ERROR_PRODUCT = "ERROR_PRODUCT"
+
+export const ADD_ORDER = "ADD_ORDER"
+export const GET_ORDER = "GET_ORDER"
+export const ERROR_ORDER = "ERROR_ORDER"
