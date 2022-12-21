@@ -35,13 +35,14 @@ export default function Product() {
   const [did, setDid] = useState();
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product);
-  const GetCategory = useSelector((state) => state.category);
+  const Category = useSelector( state => state.category);
 
-  console.log(GetCategory);
+  console.log(Category);
 
   useEffect(() => {
     dispatch(GetCategorydata());
-  }, [])
+    console.info("Category++",Category)
+  }, [open])
 
   // console.log(products);
 
@@ -87,6 +88,7 @@ export default function Product() {
         console.log(value);
       }
       resetForm();
+      dispatch(GetCategorydata());
     },
   });
 
@@ -256,7 +258,7 @@ export default function Product() {
                       id="price"
                       label="price"
                       name="price"
-                      type="price"
+                     type="price"
                       fullWidth
                       variant="standard"
                       onChange={formik.handleChange}
@@ -269,9 +271,8 @@ export default function Product() {
                       name="categoryname"
                       className="form-select space"
                     >
-                      {GetCategory.category.map((k) => {
-                        // const{id, name} = k
-
+                      {Category.category.map((k) =>{
+                        console.log(k);
                         return <option value={k.id}>{k.categoryname}</option>;
                       })}
                     </select>

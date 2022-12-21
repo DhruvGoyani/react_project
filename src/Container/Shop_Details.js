@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { addCart, decrementCounter, incrementCounter } from '../Redux/Action/Shopping_Cart_Action';
 
 function Shop_Details(props) {
   const history = useHistory();
@@ -10,24 +11,21 @@ function Shop_Details(props) {
     console.log(productvalue);
     
 
-
-    // const handleaaddtocat = (d) => {
-    //     const Datacat = {
-    //         ...d,
-    //         qty: qty
-    //     }
-    //     console.log(Datacat);
-    //     dispatch(addCart(d))
-    //     history.push("/Addtocart", Datacat);
-    // }
-    // const handleCart = () => {
-        
-    // }
+    const handleAddtoCart = (d) => {
+      const Datacat = {
+          ...d,
+          qty: qty
+      }
+      console.log(Datacat);
+      dispatch(addCart(d))
+      history.push("/shopping_cart", Datacat);
+  }
 
 
 
     return (
         <div>
+          <>please Add product !</>
             <div>
   <div className="container-fluid bg-secondary mb-5">
     <div className="d-flex flex-column align-items-center justify-content-center" style={{minHeight: 300}}>
@@ -54,7 +52,7 @@ function Shop_Details(props) {
         </div>
       </div>
       <div className="col-lg-7 pb-5">
-        
+                
       <h3 className="font-weight-semi-bold">{d.name}</h3>
         <div className="d-flex mb-3">
           <div className="text-primary mr-2">
@@ -66,23 +64,23 @@ function Shop_Details(props) {
           </div>
           <small className="pt-1">(50 Reviews)</small>
         </div>
-        <h3 className="font-weight-semi-bold mb-4">{d.price}</h3>
+        <h3 className="font-weight-semi-bold mb-4">${d.price}</h3>
         <p className="mb-4">Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc invidunt ipsum et, labore clita lorem magna lorem ut. Erat lorem duo dolor no sea nonumy. Accus labore stet, est lorem sit diam sea et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.</p>
         <div className="d-flex align-items-center mb-4 pt-2">
-          <div className="input-group quantity mr-3" style={{width: 130}}>
+          {/* <div className="input-group quantity mr-3" style={{width: 130}}>
             <div className="input-group-btn">
-              <button className="btn btn-primary btn-minus">
+              <button className="btn btn-primary btn-minus" onClick={() => handleDecrement(d.id)}>
                 <i className="fa fa-minus" />
               </button>
             </div>
             <input type="text" className="form-control bg-secondary text-center" defaultValue={1} />
             <div className="input-group-btn">
-              <button className="btn btn-primary btn-plus">
+              <button className="btn btn-primary btn-plus" onClick={() => handleIncrement(d.id)}>
                 <i className="fa fa-plus" />
               </button>
             </div>
-          </div>
-          <button className="btn btn-primary px-3"><i className="fa fa-shopping-cart mr-1" /> Add To Cart</button>
+          </div> */}
+          <button className="btn btn-primary px-3" onClick={() => handleAddtoCart(d)}><i className="fa fa-shopping-cart mr-1" /> Add To Cart</button>
         </div>
         <div className="d-flex pt-2">
           <p className="text-dark font-weight-medium mb-0 mr-2">Share on:</p>

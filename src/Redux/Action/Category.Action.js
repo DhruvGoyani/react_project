@@ -13,6 +13,7 @@ export const GetCategorydata = () => async(dispatch) => {
         });
         dispatch({ type: ActionTypes.GETCATEGORY, payload: data })
     } catch (error) {
+        console.info("error++ ",error)
         dispatch(ErrorCategory(error.message));
     }
 }

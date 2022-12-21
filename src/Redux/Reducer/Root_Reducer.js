@@ -4,6 +4,7 @@ import { authreducer, authReducer } from "../Reducer/Auth_Reducer";
 import { CategoryReducer } from "./Category_Reducer";
 import { productReducer } from "./Product_Reducer";
 import { orderreducer } from "./Order_Reducer";
+import { ShoppingCartReducer } from "./Shopping_Cart_reducer";
 
 
 export const rootReducer = combineReducers({ 
@@ -11,5 +12,6 @@ export const rootReducer = combineReducers({
     alert : alertReducer,
     category: CategoryReducer,
     product : productReducer,
-    order : orderreducer
+    order : orderreducer,
+    cart: ShoppingCartReducer,
 });
