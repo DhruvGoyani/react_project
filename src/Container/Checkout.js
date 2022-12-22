@@ -1,7 +1,25 @@
 import React from 'react';
 
 function Checkout(props) {
+
+
+
+
+
+
+
+
+
+
     return (
+
+
+
+
+
+
+
+
         <div>
             <div>
   <div className="container-fluid bg-secondary mb-5">
@@ -22,7 +40,7 @@ function Checkout(props) {
           <div className="row">
             <div className="col-md-6 form-group">
               <label>First Name</label>
-              <input className="form-control" type="text" placeholder="John" />
+              <text className="form-control" type="text" placeholder="John" />
             </div>
             <div className="col-md-6 form-group">
               <label>Last Name</label>
@@ -38,10 +56,6 @@ function Checkout(props) {
             </div>
             <div className="col-md-6 form-group">
               <label>Address Line 1</label>
-              <input className="form-control" type="text" placeholder="123 Street" />
-            </div>
-            <div className="col-md-6 form-group">
-              <label>Address Line 2</label>
               <input className="form-control" type="text" placeholder="123 Street" />
             </div>
             <div className="col-md-6 form-group">

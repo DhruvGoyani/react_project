@@ -387,13 +387,14 @@ function Shop(props) {
                 }
 
 
-                <div className="col-lg-4 col-md-6 col-sm-12 pb-1">
-                  <div className="card product-item border-0 mb-4">
+                
                     {
                       finalData.map((values, index) => {
                         console.log(values);
                         return (
                           <>
+                          <div className="col-lg-4 col-md-6 col-sm-12">
+                            <div className="card product-item border-0 mb-4">
                             <div className="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
                               <img
                                 className="img-fluid w-100"
@@ -423,41 +424,14 @@ function Shop(props) {
                                 Add To Cart
                               </a>
                             </div>
+                            </div>
+                            </div>
                           </>
                         )
                       })
                     }
 
-                    {/* <div className="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                      <img
-                        className="img-fluid w-100"
-                        src="img/product-1.jpg"
-                        alt
-                      />
-                    </div>
-                    <div className="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                      <h6 className="text-truncate mb-3">
-                        Colorful Stylish Shirt
-                      </h6>
-                      <div className="d-flex justify-content-center">
-                        <h6>$123.00</h6>
-                        <h6 className="text-muted ml-2">
-                          <del>$123.00</del>
-                        </h6>
-                      </div>
-                    </div>
-                    <div className="card-footer d-flex justify-content-between bg-light border">
-                      <a href className="btn btn-sm text-dark p-0">
-                        <i className="fas fa-eye text-primary mr-1" />
-                        View Detail
-                      </a>
-                      <a href className="btn btn-sm text-dark p-0">
-                        <i className="fas fa-shopping-cart text-primary mr-1" />
-                        Add To Cart
-                      </a>
-                    </div> */}
-                  </div>
-                </div>
+                    
 
 
 
@@ -465,7 +439,7 @@ function Shop(props) {
 
 
 
-                <div className="col-lg-4 col-md-6 col-sm-12 pb-1">
+                {/* <div className="col-lg-4 col-md-6 col-sm-12 pb-1">
                   <div className="card product-item border-0 mb-4">
                     <div className="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
                       <img
@@ -720,7 +694,7 @@ function Shop(props) {
                       </a>
                     </div>
                   </div>
-                </div>
+                </div> */}
                 <div className="col-12 pb-1">
                   <nav aria-label="Page navigation">
                     <ul className="pagination justify-content-center mb-3">

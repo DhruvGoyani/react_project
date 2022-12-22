@@ -1,11 +1,13 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { decrementCounter, handledelete, incrementCounter } from '../Redux/Action/Shopping_Cart_Action';
 
 function Shopping_Cart(props) {
 
   const c = useSelector((state) => state.cart);
   console.log(c);
+
 
   const products = useSelector((state) => state.product);
 
@@ -29,7 +31,7 @@ c.cart.map((c) => {
               ...p,
               qty: c.qty,
           };
-          console.log(data);
+          console.log(  data);
           filterdata.push(data);
       }
   });
@@ -43,16 +45,17 @@ let TotalAmount = 0;
 
 
     const Discount = Math.round(TotalAmount * 0.05);
-    const FinalAmount = TotalAmount - Discount;
+    const shipping = (15);
+    const subtotal = TotalAmount;
+    const FinalAmount = TotalAmount + shipping;
+
+
 
 
     const handleclickdelete = (id) => {
         dispatch(handledelete(id))
         console.log(id);
     }
-
-
-
 
 
 
@@ -77,6 +80,7 @@ let TotalAmount = 0;
           <thead className="bg-secondary text-dark">
             <tr>
               <th>Image</th>
+              <th>Name</th>
               <th>Price</th>
               <th>Quantity</th>
               <th>Total</th>
@@ -91,8 +95,9 @@ let TotalAmount = 0;
                      <tr>
               <td className="align-middle">
                 <img src={d.url} alt style={{width: 50}} /> 
-                {d.name}
+                
               </td>
+              <td className="align-middle">{d.name}</td>
               <td className="align-middle">${d.price}</td>
               <td className="align-middle">
                 <div className="input-group quantity mx-auto" style={{width: 100}}>
@@ -137,19 +142,25 @@ let TotalAmount = 0;
           <div className="card-body">
             <div className="d-flex justify-content-between mb-3 pt-1">
               <h6 className="font-weight-medium">Subtotal</h6>
-              <h6 className="font-weight-medium">$150</h6>
+              <h6 className="font-weight-medium">$<b><samp>{subtotal}</samp></b></h6>
             </div>
-            <div className="d-flex justify-content-between">
-              <h6 className="font-weight-medium">Shipping</h6>
-              <h6 className="font-weight-medium">$10</h6>
+            <div className="d-flex justify-content-between mb-3 pt-1">
+              <h6 className="font-weight-medium">Shipping Charges</h6>
+              <h6 className="font-weight-medium">$15</h6>
+            </div>
+            <div className="d-flex justify-content-between mb-3 pt-1">
+              <h6 className="font-weight-medium">Item</h6>
+              <h6 className="font-weight-medium">{filterdata.length}</h6>
             </div>
           </div>
           <div className="card-footer border-secondary bg-transparent">
             <div className="d-flex justify-content-between mt-2">
               <h5 className="font-weight-bold">Total</h5>
-              <h5 className="font-weight-bold">$160</h5>
+              <h5 className="font-weight-bold">$<b><samp>{TotalAmount + shipping}</samp></b></h5>
             </div>
+            <NavLink to={{pathname: "/checkout", state: { cart: filterdata }}}>
             <button className="btn btn-block btn-primary my-3 py-3">Proceed To Checkout</button>
+            </NavLink>
           </div>
         </div>
       </div>
