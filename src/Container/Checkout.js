@@ -126,7 +126,6 @@ function Checkout(props) {
                 <option selected>United States</option>
                 <option>Afghanistan</option>
                 <option>Albania</option>
-                <option>Algeria</option>
               </select>
             </div>
             <div className="col-md-6 form-group">
